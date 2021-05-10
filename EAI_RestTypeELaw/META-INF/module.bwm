@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_2kCLALE4EeuvWY1N5jnJUQ" targetNamespace="http://tns.tibco.com/bw/composite/EAI_RestTypeELaw" name="EAI_RestTypeELaw" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_T7TVErE7EeuvWY1N5jnJUQ" name="elaw-healthcheck" promote="Componenthealthcheck/elaw-healthcheck">
+    <sca:interface.wsdl xmi:id="_T7TVFrE7EeuvWY1N5jnJUQ" interface="http://xmlns.example.com/20210216113212PLT#wsdl.interface(elaw-healthcheck)" scaext:wsdlLocation="../Processes/com/fnf/eai/common/healthcheck.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_T7TVF7E7EeuvWY1N5jnJUQ" name="RestService" path="/elaw/healthcheck" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="healthcheck" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.common.healthcheck-healthcheck.json">
+      <operation xmi:id="_T7h-kLE7EeuvWY1N5jnJUQ" operationName="post" nickname="post-elaw-healthcheck" httpMethod="POST" notes="postHealthcheck" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_T7h-kbE7EeuvWY1N5jnJUQ" operationName="get" nickname="get-elaw-healthcheck" httpMethod="GET" notes="getHealthcheck" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_T7h-k7E7EeuvWY1N5jnJUQ"/>
+      <advancedConfig xmi:id="_T7TVGLE7EeuvWY1N5jnJUQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_T7h-krE7EeuvWY1N5jnJUQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_aQmqQrE7EeuvWY1N5jnJUQ" name="elaw-stresscheck" promote="Componenthealthcheck/elaw-stresscheck">
+    <sca:interface.wsdl xmi:id="_aQmqRrE7EeuvWY1N5jnJUQ" interface="http://xmlns.example.com/20210216113212PLT#wsdl.interface(elaw-stresscheck)" scaext:wsdlLocation="../Processes/com/fnf/eai/common/healthcheck.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_aQmqR7E7EeuvWY1N5jnJUQ" name="RestService1" path="/elaw/stresscheck" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="healthcheck" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.common.healthcheck-healthcheck.json" policySets="com.fnf.eai.resources.policy.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_aQwbQLE7EeuvWY1N5jnJUQ" operationName="post" nickname="post-elaw-stresscheck" httpMethod="POST" notes="postHealthcheck" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_aQwbQbE7EeuvWY1N5jnJUQ" operationName="get" nickname="get-elaw-stresscheck" httpMethod="GET" notes="getHealthcheck" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_aQ5lMLE7EeuvWY1N5jnJUQ"/>
+      <advancedConfig xmi:id="_aQmqSLE7EeuvWY1N5jnJUQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_aQwbQrE7EeuvWY1N5jnJUQ" bindingName="RestService1"/>
+  </sca:service>
+  <sca:property xmi:id="_2ntKELE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2n27ELE4EeuvWY1N5jnJUQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2n27EbE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2n27ErE4EeuvWY1N5jnJUQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2oAsELE4EeuvWY1N5jnJUQ" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2oAsEbE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2oAsErE4EeuvWY1N5jnJUQ" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2oAsE7E4EeuvWY1N5jnJUQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_2oJ2ALE4EeuvWY1N5jnJUQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_oiY_wLE5EeuvWY1N5jnJUQ" name="/COMMON/LOG_LEVEL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ruRs8LE5EeuvWY1N5jnJUQ" name="/COMMON/ENV" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_8FiPQLE5EeuvWY1N5jnJUQ" name="/DB_INFO/MAX_ROW" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-Khl0LE5EeuvWY1N5jnJUQ" name="/DB_INFO/SUBSET_SIZE" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-aCBcLE5EeuvWY1N5jnJUQ" name="/DB_INFO/TIME_OUT" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__duTELE5EeuvWY1N5jnJUQ" name="/DB_INFO/MAX_ROW_LONG" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_IIS2gLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/JMS/URL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_L7_xoLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/JMS/USERNAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_M9OlILE6EeuvWY1N5jnJUQ" name="/EAI_INFO/JMS/PASSWORD" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OMnwcLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/PORT/HTTP_PORT1" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OOYrALE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/QTP_MIN" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SgPhwLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/QTP_MAX" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_S4UDgLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/hostname1" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_UmTPULE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/hostname2" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vJgYgLFLEeuvWY1N5jnJUQ" name="/MERP_INFO/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_xC3G0LFLEeuvWY1N5jnJUQ" name="/MERP_INFO/password" type="property:password" scaext:simpleValue="#!m7H/mlGuJaQppfJbiOaw1Q==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_x7yS4LFLEeuvWY1N5jnJUQ" name="/MERP_INFO/url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_yxMQ4LFLEeuvWY1N5jnJUQ" name="/MERP_INFO/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_z5cSYLFLEeuvWY1N5jnJUQ" name="/MERP_INFO/maxconnection" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NEio4LFMEeuvWY1N5jnJUQ" name="/MERP_INFO/login_timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_PCIW8LFMEeuvWY1N5jnJUQ" name="/MERP_INFO/idle_timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="__b88ALE6EeuvWY1N5jnJUQ" name="Componenthealthcheck" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="__b88AbE6EeuvWY1N5jnJUQ" processName="com.fnf.eai.common.healthcheck"/>
+    <sca:service xmi:id="_T7TVELE7EeuvWY1N5jnJUQ" name="elaw-healthcheck">
+      <sca:interface.wsdl xmi:id="_T7TVEbE7EeuvWY1N5jnJUQ" interface="http://xmlns.example.com/20210216113212PLT#wsdl.interface(elaw-healthcheck)"/>
+    </sca:service>
+    <sca:service xmi:id="_aQmqQLE7EeuvWY1N5jnJUQ" name="elaw-stresscheck">
+      <sca:interface.wsdl xmi:id="_aQmqQbE7EeuvWY1N5jnJUQ" interface="http://xmlns.example.com/20210216113212PLT#wsdl.interface(elaw-stresscheck)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

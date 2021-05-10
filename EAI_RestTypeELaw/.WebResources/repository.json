@@ -1,0 +1,7 @@
+{
+    "records": [],
+    "resources": [{
+        "location": "Service Descriptors/com.fnf.eai.common.healthcheck-healthcheck.json",
+        "type": "generated"
+    }]
+}
