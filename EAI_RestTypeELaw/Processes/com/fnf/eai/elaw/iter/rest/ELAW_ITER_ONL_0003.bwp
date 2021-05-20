@@ -1153,6 +1153,9 @@
             namespace="http://www.example.org/ErrSchema" prefix="tns"/>
         <tibex:namespaceItem
             namespace="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
+        <tibex:namespaceItem namespace="http://tns.tibco.com/bw/REST" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1610583409932"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
@@ -1186,8 +1189,7 @@
         <bpws:variable name="resourcepath" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
             <bpws:from>
-                <bpws:literal>/hook/common-webhook-event
-</bpws:literal>
+                <bpws:literal>/hook/common-webhook-event</bpws:literal>
             </bpws:from>
         </bpws:variable>
         <bpws:variable element="ns5:ErrorLinkHandlerFaultData"
@@ -1338,7 +1340,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://tns.tibco.com/bw/REST&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;InvokeRESTAPI&quot;/>&#xa;    &lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:messageBody>&#xa;            &lt;xsl:value-of select=&quot;$InvokeRESTAPI/MessageBody/asciiContent&quot;/>&#xa;        &lt;/tns3:messageBody>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;InvokeRESTAPI&quot;/>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns3:messageBody>&lt;xsl:value-of select=&quot;concat('{&amp;quot;RESPONSE_CD&amp;quot;:&amp;quot;200&amp;quot;,&amp;quot;RESPONSE_MSG&amp;quot;:&amp;quot;SUCCESS&amp;quot;,&amp;quot;RESPONSE_DATA&amp;quot;:',tib:trim($InvokeRESTAPI/MessageBody/asciiContent),'}')&quot;/>&lt;/tns3:messageBody>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

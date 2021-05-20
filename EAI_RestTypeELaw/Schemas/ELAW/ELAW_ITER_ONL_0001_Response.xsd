@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ELAW_ITER_ONL_0001_Response" xmlns:tns="http://www.example.org/ELAW_ITER_ONL_0001_Response" elementFormDefault="qualified">
+   <element name="element">
+        <complexType>
+    <sequence>
+      <element maxOccurs="1" minOccurs="1" name="RESPONSE_CD" type="string"/>
+      <element maxOccurs="1" minOccurs="1" name="RESPONSE_MSG" type="string"/>
+      <element maxOccurs="1" minOccurs="1" name="RESPONSE_DATA" nillable="true">
+        <complexType>
+          <sequence>
+          <element maxOccurs="1" minOccurs="1" name="status" type="boolean" nillable="true" />
+          <element maxOccurs="1" minOccurs="1" name="message" type="string" nillable="true" />
+          <element maxOccurs="unbounded" minOccurs="1" name="response" nillable="true">
+            <complexType>
+             <sequence>
+              <element maxOccurs="1" minOccurs="1" name="company" type="string" nillable="true" />
+              <element maxOccurs="1" minOccurs="1" name="dept_code" type="string" nillable="true" />
+              <element maxOccurs="1" minOccurs="1" name="dept_name" type="string" nillable="true" />
+              <element maxOccurs="1" minOccurs="1" name="parent_dept_code" type="string" nillable="true" />
+              <element maxOccurs="1" minOccurs="1" name="sort" type="string" nillable="true" />
+              <element maxOccurs="1" minOccurs="1" name="use_ac" type="string" nillable="true" />          
+                    </sequence>
+        </complexType>         
+              </element> 
+                    </sequence>
+        </complexType>
+      </element>
+    </sequence>
+        </complexType>
+    </element>
+</schema>

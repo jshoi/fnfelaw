@@ -744,7 +744,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.6"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="641"
+                                    x="713"
                                     xsi:type="notation:Bounds" y="108"/>
                                     </children>
                                     <children type="4002">
@@ -821,7 +821,7 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="384"
+                                    <layoutConstraint height="407"
                                     width="946" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
@@ -1153,11 +1153,15 @@
             namespace="http://www.example.org/ErrSchema" prefix="tns"/>
         <tibex:namespaceItem
             namespace="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
+        <tibex:namespaceItem namespace="http://tns.tibco.com/bw/REST" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1610583409932"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ErrSchema"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ReqSchema"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ELAW_ITER_ONL_0001_Response"/>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
@@ -1186,7 +1190,7 @@
         <bpws:variable name="resourcepath" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
             <bpws:from>
-                <bpws:literal>/elaw/employee-dept-all</bpws:literal>
+                <bpws:literal>/user-info/employee-dept-all</bpws:literal>
             </bpws:from>
         </bpws:variable>
         <bpws:variable element="ns5:ErrorLinkHandlerFaultData"
@@ -1310,7 +1314,7 @@
                 <bpws:link name="InvokeRESTAPIToLOG_QUERY" tibex:linkType="SUCCESS"/>
                 <bpws:link name="AssignToCallProcess" tibex:linkType="SUCCESS"/>
                 <bpws:link name="LOG_STARTToInvokeRESTAPI" tibex:linkType="SUCCESS"/>
-                <bpws:link name="LOG_InvokeToEndLog" tibex:linkType="SUCCESS"/>
+                <bpws:link name="LOG_InvokeToLOG_END" tibex:linkType="SUCCESS"/>
                 <bpws:link name="LOG_ENDToEnd" tibex:linkType="SUCCESS"/>
                 <bpws:link name="ErrorMaperProcToThrow" tibex:linkType="SUCCESS"/>
                 <bpws:link name="InvokeRESTAPIToErrorMaperProc" tibex:linkType="ERROR"/>
@@ -1337,7 +1341,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://tns.tibco.com/bw/REST&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;InvokeRESTAPI&quot;/>&#xa;    &lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:messageBody>&#xa;            &lt;xsl:value-of select=&quot;$InvokeRESTAPI/MessageBody/asciiContent&quot;/>&#xa;        &lt;/tns3:messageBody>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;InvokeRESTAPI&quot;/>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns3:messageBody>&lt;xsl:value-of select=&quot;concat('{&amp;quot;RESPONSE_CD&amp;quot;:&amp;quot;200&amp;quot;,&amp;quot;RESPONSE_MSG&amp;quot;:&amp;quot;SUCCESS&amp;quot;,&amp;quot;RESPONSE_DATA&amp;quot;:',tib:trim($InvokeRESTAPI/MessageBody/asciiContent),'}')&quot;/>&lt;/tns3:messageBody>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -1459,7 +1463,7 @@
                         <bpws:target linkName="InvokeRESTAPIToLOG_QUERY"/>
                     </bpws:targets>
                     <bpws:sources>
-                        <bpws:source linkName="LOG_InvokeToEndLog"/>
+                        <bpws:source linkName="LOG_InvokeToLOG_END"/>
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding coercion=""
@@ -1475,7 +1479,7 @@
                     tibex:xpdlId="d4a0b5bc-9b84-442d-87f1-a6172f60b841"
                     type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
-                        <bpws:target linkName="LOG_InvokeToEndLog"/>
+                        <bpws:target linkName="LOG_InvokeToLOG_END"/>
                     </bpws:targets>
                     <bpws:sources>
                         <bpws:source linkName="LOG_ENDToEnd"/>

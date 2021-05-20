@@ -283,7 +283,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//EAI_RestTypeELaw///ITER_INFO/HTTP/password</name>
-			<value>38e9fd0d419d3382fe41a4035a7b4fca874d70d9</value>
+			<value>Basic YnVwdGxlX3NlcnZlcjozOGU5ZmQwZDQxOWQzMzgyZmU0MWE0MDM1YTdiNGZjYTg3NGQ3MGQ5</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -301,7 +301,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//EAI_RestTypeELaw///ITER_INFO/HTTP/authorization</name>
-			<value>Authroization</value>
+			<value>Authorization</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

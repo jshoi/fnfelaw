@@ -61,11 +61,11 @@
         }
       }
     },
-    "/hook/common-webhook-event" : {
+    "/elaw/hook/common-webhook-event" : {
       "post" : {
         "summary" : "postELAW_ITER_ONL",
         "description" : "postELAW_ITER_ONL",
-        "operationId" : "post-hook-common-webhook-event",
+        "operationId" : "post-elaw-hook-common-webhook-event",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
