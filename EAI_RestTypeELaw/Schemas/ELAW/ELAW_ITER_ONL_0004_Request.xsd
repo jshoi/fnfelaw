@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ELAW_ITER_ONL_0004_Request" xmlns:tns="http://www.example.org/ELAW_ITER_ONL_0004_Request" elementFormDefault="qualified">
+	<element name="element">
+		<complexType>
+			<sequence>
+				<element name="REQUEST">
+					<complexType>
+						<sequence>
+							<element name="page" type="integer" minOccurs="1" maxOccurs="1"></element>
+							<element name="row_count" type="integer" minOccurs="1" maxOccurs="1"></element>
+							<element name="sstr" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="s_type" type="string" minOccurs="1" maxOccurs="1"></element>
+							<element name="status" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="apv_type" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="filter_subject" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="filter_author" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="filter_approval" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="filter_supporter" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="search_fields" type="string" minOccurs="0" maxOccurs="1"></element>
+							<element name="userid" type="string" minOccurs="1" maxOccurs="1"></element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -11,6 +11,9 @@
     xmlns:ns10="http://tns.tibco.com/bw/activity/sendhttprequest/input+35cba7bf-bded-4371-99c9-6decafc7c877+RequestActivityInput"
     xmlns:ns11="http://tns.tibco.com/bw/activity/sendhttprequest/output+35cba7bf-bded-4371-99c9-6decafc7c877+RequestActivityOutput"
     xmlns:ns12="http://tns.tibco.com/bw/palette/internal/activityerror+bw.http.sendHTTPRequest"
+    xmlns:ns13="activity.jsonParser.input+80992c1c-60a1-47b5-8e66-c30f9eba02ac+ActivityInputType"
+    xmlns:ns14="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.JsonParser"
+    xmlns:ns15="http://www.example.org/ELAW_ITER_ONL_0004_Request"
     xmlns:ns2="http://tns.tibco.com/bw/REST"
     xmlns:ns3="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+ebd5c1ad-1f43-4bd8-a128-0c88ddd7c2f9+RestInvokeInput"
     xmlns:ns4="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+ebd5c1ad-1f43-4bd8-a128-0c88ddd7c2f9+RestInvokeOutput"
@@ -445,19 +448,27 @@
             <complexType name="parametersType">
                 <sequence>
                     <element form="unqualified" maxOccurs="1"
-                        minOccurs="0" name="page" type="string"/>
+                        minOccurs="1" name="page" type="string"/>
                     <element form="unqualified" maxOccurs="1"
-                        minOccurs="0" name="row_count" type="string"/>
+                        minOccurs="1" name="row_count" type="string"/>
                     <element form="unqualified" maxOccurs="1"
                         minOccurs="0" name="sstr" type="string"/>
                     <element form="unqualified" maxOccurs="1"
-                        minOccurs="0" name="s_type" type="string"/>
+                        minOccurs="1" name="s_type" type="string"/>
                     <element form="unqualified" maxOccurs="1"
                         minOccurs="0" name="status" type="string"/>
                     <element form="unqualified" maxOccurs="1"
                         minOccurs="0" name="apv_type" type="string"/>
                     <element form="unqualified" maxOccurs="1"
                         minOccurs="0" name="filter_subject" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="filter_author" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="filter_approval" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="filter_supporter" type="string"/>
+                    <element form="unqualified" maxOccurs="1"
+                        minOccurs="0" name="search_fields" type="string"/>
                     <element form="unqualified" maxOccurs="1"
                         minOccurs="1" name="userid" type="string"/>
                 </sequence>
@@ -544,6 +555,29 @@
                     <element maxOccurs="1" minOccurs="0" ref="Q1:HttpServerException"/>
                     <element maxOccurs="1" minOccurs="0" ref="Q1:HttpCommunicationException"/>
                     <element maxOccurs="1" minOccurs="0" ref="Q2:ActivityTimedOutException"/>
+                </choice>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="activity.jsonParser.input+80992c1c-60a1-47b5-8e66-c30f9eba02ac+ActivityInputType"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="activity.jsonParser.input+80992c1c-60a1-47b5-8e66-c30f9eba02ac+ActivityInputType">
+            <complexType name="ActivityInputClassType">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1"
+                        name="jsonString" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityInputClass" type="tns:ActivityInputClassType"/>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.JsonParser"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://schemas.tibco.com/bw/plugins/xml/5.0/JSONActivitiesExceptions" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.JsonParser">
+            <import namespace="http://schemas.tibco.com/bw/plugins/xml/5.0/JSONActivitiesExceptions"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:JSONParserException"/>
                 </choice>
             </complexType>
         </schema>
@@ -668,7 +702,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="315"
+                                    x="223"
                                     xsi:type="notation:Bounds" y="108"/>
                                     </children>
                                     <children type="4002 bw.generalactivities.bwassign">
@@ -701,7 +735,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.3"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="199"
+                                    x="107"
                                     xsi:type="notation:Bounds" y="108"/>
                                     </children>
                                     <children type="4002 bw.generalactivities.callprocess">
@@ -863,6 +897,39 @@
                                     <layoutConstraint
                                     height="40" width="40"
                                     x="420"
+                                    xsi:type="notation:Bounds" y="108"/>
+                                    </children>
+                                    <children type="4002 bw.restjson.JsonParser">
+                                    <children type="4017">
+                                    <styles fontName="맑은 고딕"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles fontName="맑은 고딕"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles fontName="맑은 고딕"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles fontName="맑은 고딕"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="맑은 고딕"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.9"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="319"
                                     xsi:type="notation:Bounds" y="108"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -1127,7 +1194,7 @@
         </edges>
         <edges
             source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
-            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.8" type="4006">
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.9" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
@@ -1203,6 +1270,17 @@
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
             <bendpoints points="[25, -1, -102, 0]$[103, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.9"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.8" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="맑은 고딕" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.8"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
     </notation:Diagram>
     <tibex:NamespaceRegistry enabled="true">
         <tibex:namespaceItem
@@ -1224,11 +1302,16 @@
             namespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions" prefix="tns12"/>
         <tibex:namespaceItem
             namespace="http://www.example.com/namespaces/tns/1610583409932" prefix="tns6"/>
+        <tibex:namespaceItem
+            namespace="activity.jsonParser.input+80992c1c-60a1-47b5-8e66-c30f9eba02ac+ActivityInputType" prefix="tns7"/>
+        <tibex:namespaceItem
+            namespace="http://www.example.org/ELAW_ITER_ONL_0004_Request" prefix="tns8"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1610583409932"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ErrSchema"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ReqSchema"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ELAW_ITER_ONL_0004_Request"/>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
@@ -1288,54 +1371,11 @@
             name="SendHTTPRequest" sca-bpel:internal="true"/>
         <bpws:variable element="ns12:ActivityErrorData"
             name="_error_SendHTTPRequest" sca-bpel:internal="true"/>
-        <bpws:variable name="page" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>0</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="row_count" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>2</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="sstr" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>webix</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="s_type" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>atr_id</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="status" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>c</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="apv_type" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>1</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="filter_subject" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>webix</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
-        <bpws:variable name="userid" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>tjdgus1912</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
+        <bpws:variable element="ns13:ActivityInputClass"
+            name="ParseJSON-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns15:element" name="ParseJSON" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:ActivityErrorData"
+            name="_error_ParseJSON" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1433,6 +1473,7 @@
                 <bpws:link name="LOG_ENDToEnd" tibex:linkType="SUCCESS"/>
                 <bpws:link name="ErrorMaperProcToThrow" tibex:linkType="SUCCESS"/>
                 <bpws:link name="SendHTTPRequestToErrorMaperProc" tibex:linkType="ERROR"/>
+                <bpws:link name="ParseJSONToSendHTTPRequest" tibex:linkType="SUCCESS"/>
             </bpws:links>
             <bpws:extensionActivity>
                 <tibex:receiveEvent createInstance="yes"
@@ -1606,7 +1647,7 @@
                     outputVariable="SendHTTPRequest"
                     tibex:xpdlId="35cba7bf-bded-4371-99c9-6decafc7c877" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
-                        <bpws:target linkName="LOG_STARTToSendHTTPRequest"/>
+                        <bpws:target linkName="ParseJSONToSendHTTPRequest"/>
                     </bpws:targets>
                     <bpws:sources>
                         <bpws:source linkName="SendHTTPRequestToLOG_Invoke"/>
@@ -1621,7 +1662,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://tns.tibco.com/bw/activity/sendhttprequest/input+35cba7bf-bded-4371-99c9-6decafc7c877+RequestActivityInput&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Authorization&quot;/>&lt;xsl:param name=&quot;password&quot;/>&lt;xsl:param name=&quot;resourcepath&quot;/>&lt;xsl:template name=&quot;SendHTTPRequest-input&quot; match=&quot;/&quot;>&lt;tns4:RequestActivityInput>&lt;Method>&lt;xsl:value-of select=&quot;'POST'&quot;/>&lt;/Method>&lt;RequestURI>&lt;xsl:value-of select=&quot;$resourcepath&quot;/>&lt;/RequestURI>&lt;Headers>&lt;Content-Type>&lt;xsl:value-of select=&quot;'application/x-www-form-urlencoded'&quot;/>&lt;/Content-Type>&lt;/Headers>&lt;DynamicHeaders>&lt;Header>&lt;Name>&lt;xsl:value-of select=&quot;$Authorization&quot;/>&lt;/Name>&lt;Value>&lt;xsl:value-of select=&quot;$password&quot;/>&lt;/Value>&lt;/Header>&lt;/DynamicHeaders>&lt;parameters>&lt;page>&lt;xsl:value-of select=&quot;'0'&quot;/>&lt;/page>&lt;row_count>&lt;xsl:value-of select=&quot;'2'&quot;/>&lt;/row_count>&lt;sstr>&lt;xsl:value-of select=&quot;'webix'&quot;/>&lt;/sstr>&lt;s_type>&lt;xsl:value-of select=&quot;'atr_id'&quot;/>&lt;/s_type>&lt;status>&lt;xsl:value-of select=&quot;'c'&quot;/>&lt;/status>&lt;apv_type>&lt;xsl:value-of select=&quot;'1'&quot;/>&lt;/apv_type>&lt;filter_subject>&lt;xsl:value-of select=&quot;'webix'&quot;/>&lt;/filter_subject>&lt;userid>&lt;xsl:value-of select=&quot;'tjdgus1912'&quot;/>&lt;/userid>&lt;/parameters>&lt;/tns4:RequestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://tns.tibco.com/bw/activity/sendhttprequest/input+35cba7bf-bded-4371-99c9-6decafc7c877+RequestActivityInput&quot; xmlns:tns8=&quot;http://www.example.org/ELAW_ITER_ONL_0004_Request&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Authorization&quot;/>&lt;xsl:param name=&quot;password&quot;/>&lt;xsl:param name=&quot;resourcepath&quot;/>&lt;xsl:param name=&quot;ParseJSON&quot;/>&lt;xsl:template name=&quot;SendHTTPRequest-input&quot; match=&quot;/&quot;>&lt;tns4:RequestActivityInput>&lt;Method>&lt;xsl:value-of select=&quot;'POST'&quot;/>&lt;/Method>&lt;RequestURI>&lt;xsl:value-of select=&quot;$resourcepath&quot;/>&lt;/RequestURI>&lt;Headers>&lt;Content-Type>&lt;xsl:value-of select=&quot;'application/x-www-form-urlencoded'&quot;/>&lt;/Content-Type>&lt;/Headers>&lt;DynamicHeaders>&lt;Header>&lt;Name>&lt;xsl:value-of select=&quot;$Authorization&quot;/>&lt;/Name>&lt;Value>&lt;xsl:value-of select=&quot;$password&quot;/>&lt;/Value>&lt;/Header>&lt;/DynamicHeaders>&lt;parameters>&lt;page>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:page&quot;/>&lt;/page>&lt;row_count>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:row_count&quot;/>&lt;/row_count>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:sstr&quot;>&lt;sstr>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:sstr&quot;/>&lt;/sstr>&lt;/xsl:if>&lt;s_type>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:s_type&quot;/>&lt;/s_type>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:status&quot;>&lt;status>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:status&quot;/>&lt;/status>&lt;/xsl:if>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:apv_type&quot;>&lt;apv_type>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:apv_type&quot;/>&lt;/apv_type>&lt;/xsl:if>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_subject&quot;>&lt;filter_subject>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_subject&quot;/>&lt;/filter_subject>&lt;/xsl:if>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_author&quot;>&lt;filter_author>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_author&quot;/>&lt;/filter_author>&lt;/xsl:if>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_approval&quot;>&lt;filter_approval>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_approval&quot;/>&lt;/filter_approval>&lt;/xsl:if>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_supporter&quot;>&lt;filter_supporter>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:filter_supporter&quot;/>&lt;/filter_supporter>&lt;/xsl:if>&lt;xsl:if test=&quot;$ParseJSON/tns8:REQUEST/tns8:search_fields&quot;>&lt;search_fields>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:search_fields&quot;/>&lt;/search_fields>&lt;/xsl:if>&lt;userid>&lt;xsl:value-of select=&quot;$ParseJSON/tns8:REQUEST/tns8:userid&quot;/>&lt;/userid>&lt;/parameters>&lt;/tns4:RequestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -1640,16 +1681,56 @@
                                     inputHeadersQName="RequestActivityInput:inputHeadersType"
                                     outputHeadersQName="RequestActivityOutput:outputHeadersType"
                                     postDataAs="String" xsi:type="http:SendHTTPRequest">
-                                    <httpParameters parameterName="page"/>
-                                    <httpParameters parameterName="row_count"/>
+                                    <httpParameters
+                                    parameterCardinality="Required" parameterName="page"/>
+                                    <httpParameters
+                                    parameterCardinality="Required" parameterName="row_count"/>
                                     <httpParameters parameterName="sstr"/>
-                                    <httpParameters parameterName="s_type"/>
+                                    <httpParameters
+                                    parameterCardinality="Required" parameterName="s_type"/>
                                     <httpParameters parameterName="status"/>
                                     <httpParameters parameterName="apv_type"/>
                                     <httpParameters parameterName="filter_subject"/>
+                                    <httpParameters parameterName="filter_author"/>
+                                    <httpParameters parameterName="filter_approval"/>
+                                    <httpParameters parameterName="filter_supporter"/>
+                                    <httpParameters parameterName="search_fields"/>
                                     <httpParameters
                                     parameterCardinality="Required" parameterName="userid"/>
                                     <writeToFilePolicy/>
+                                    </value>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="ParseJSON-input"
+                    name="ParseJSON" outputVariable="ParseJSON"
+                    tibex:xpdlId="80992c1c-60a1-47b5-8e66-c30f9eba02ac" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="LOG_STARTToSendHTTPRequest"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="ParseJSONToSendHTTPRequest"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns7=&quot;activity.jsonParser.input+80992c1c-60a1-47b5-8e66-c30f9eba02ac+ActivityInputType&quot; xmlns:tns1=&quot;http://www.example.org/ReqSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;ParseJSON-input&quot; match=&quot;/&quot;>&lt;tns7:ActivityInputClass>&lt;jsonString>&lt;xsl:value-of select=&quot;$Start/tns1:messageBody&quot;/>&lt;/jsonString>&lt;/tns7:ActivityInputClass>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.restjson.JsonParser"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:restjson="http://ns.tibco.com/bw/palette/restjson" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/restjson#//JsonParser"/>
+                                    <value jsonInputStyle="None"
+                                    schemaType="Xsd" xsi:type="restjson:JsonParser">
+                                    <outputEditorElement href="platform:/resource/EAI_RestTypeELaw/Schemas/ELAW/ELAW_ITER_ONL_0004_Request.xsd#//element;XSDElementDeclaration"/>
                                     </value>
                                 </properties>
                             </activityConfig>
