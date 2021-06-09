@@ -81,6 +81,30 @@
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_Uq1iEbkyEeuse_qpQLYdOw" bindingName="RestService5"/>
   </sca:service>
+  <sca:service xmi:id="_Fh5s0MjEEeutn74kTmuvKg" name="elaw-organization-data" promote="ComponentELAW_ITER_ONL/elaw-organization-data">
+    <sca:interface.wsdl xmi:id="_FiEr8MjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-data)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_FjPwoMjEEeutn74kTmuvKg" name="RestService6" path="/elaw/organization-data" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="ELAW_ITER_ONL" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json">
+      <operation xmi:id="_FjqAUMjEEeutn74kTmuvKg" operationName="post" nickname="post-elaw-organization-data" httpMethod="POST" notes="postELAW_ITER_ONL" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_FkrUAMjEEeutn74kTmuvKg"/>
+      <advancedConfig xmi:id="_FjPwocjEEeutn74kTmuvKg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_FjqnYMjEEeutn74kTmuvKg" bindingName="RestService6"/>
+  </sca:service>
+  <sca:service xmi:id="_IdAMAcjEEeutn74kTmuvKg" name="elaw-organization-tree-all" promote="ComponentELAW_ITER_ONL/elaw-organization-tree-all">
+    <sca:interface.wsdl xmi:id="_IdAMBcjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-tree-all)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_IeUaoMjEEeutn74kTmuvKg" name="RestService7" path="/elaw/organization-tree-all" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="ELAW_ITER_ONL" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json">
+      <operation xmi:id="_IeuDQMjEEeutn74kTmuvKg" operationName="post" nickname="post-elaw-organization-tree-all" httpMethod="POST" notes="postELAW_ITER_ONL" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_IfsToMjEEeutn74kTmuvKg"/>
+      <advancedConfig xmi:id="_IeUaocjEEeutn74kTmuvKg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_IeuqUMjEEeutn74kTmuvKg" bindingName="RestService7"/>
+  </sca:service>
   <sca:property xmi:id="_2ntKELE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_2n27ELE4EeuvWY1N5jnJUQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_2n27EbE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
@@ -137,6 +161,12 @@
     </sca:service>
     <sca:service xmi:id="_UqFUILkyEeuse_qpQLYdOw" name="elaw-hook-common-webhook-event">
       <sca:interface.wsdl xmi:id="_UqGiQLkyEeuse_qpQLYdOw" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-hook-common-webhook-event)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_Fh00UMjEEeutn74kTmuvKg" name="elaw-organization-data">
+      <sca:interface.wsdl xmi:id="_Fh2CcMjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-data)"/>
+    </sca:service>
+    <sca:service xmi:id="_Ic_k8MjEEeutn74kTmuvKg" name="elaw-organization-tree-all">
+      <sca:interface.wsdl xmi:id="_IdAMAMjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-tree-all)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
     </sca:service>
   </sca:component>
 </sca:composite>
