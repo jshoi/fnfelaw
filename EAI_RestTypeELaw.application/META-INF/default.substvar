@@ -209,8 +209,8 @@
 			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/hostname</name>
-			<value>dev.api.fnf.co.kr</value>
+			<name>//EAI_RestTypeELaw///ITER_INFO/hostname</name>
+			<value>dev-apix.fnf.co.kr</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -218,8 +218,8 @@
 			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/url</name>
-			<value>jdbc:oracle:thin:@10.150.101.2:1521:fnfdb_pdb1.devprisub01.fnfvcn.oraclevcn.com</value>
+			<name>//EAI_RestTypeELaw///ITER_INFO/HTTP/password</name>
+			<value>Basic YnVwdGxlX3NlcnZlcjozOGU5ZmQwZDQxOWQzMzgyZmU0MWE0MDM1YTdiNGZjYTg3NGQ3MGQ5</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -227,8 +227,8 @@
 			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/maxconnection</name>
-			<value>10</value>
+			<name>//EAI_RestTypeELaw///ITER_INFO/HTTP/port</name>
+			<value>443</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Integer</type>
@@ -236,38 +236,11 @@
 			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/username</name>
-			<value>eai</value>
+			<name>//EAI_RestTypeELaw///ITER_INFO/HTTP/authorization</name>
+			<value>Authorization</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
-			<useLookupValue>false</useLookupValue>
-		</globalVariable>
-		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/password</name>
-			<value>#!CmpBjljBWJuss7qDgtHtYwJ4OSpmnXKBPVruUVw/XWY=</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Password</type>
-			<isOverride>false</isOverride>
-			<useLookupValue>false</useLookupValue>
-		</globalVariable>
-		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/idle_timeout</name>
-			<value>180</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-			<useLookupValue>false</useLookupValue>
-		</globalVariable>
-		<globalVariable>
-			<name>//EAI_RestTypeELaw///MERP_INFO/login_timeout</name>
-			<value>10</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
 			<isOverride>false</isOverride>
 			<useLookupValue>false</useLookupValue>
 		</globalVariable>

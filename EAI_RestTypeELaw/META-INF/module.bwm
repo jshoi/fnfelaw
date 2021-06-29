@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_2kCLALE4EeuvWY1N5jnJUQ" targetNamespace="http://tns.tibco.com/bw/composite/EAI_RestTypeELaw" name="EAI_RestTypeELaw" compositeext:version="1.0.0" compositeext:formatVersion="2">
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:parameters="http://xmlns.example.com/ELAW_ITER_ONL/parameters" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_2kCLALE4EeuvWY1N5jnJUQ" targetNamespace="http://tns.tibco.com/bw/composite/EAI_RestTypeELaw" name="EAI_RestTypeELaw" compositeext:version="1.0.0" compositeext:formatVersion="2">
   <sca:service xmi:id="_T7TVErE7EeuvWY1N5jnJUQ" name="elaw-healthcheck" promote="Componenthealthcheck/elaw-healthcheck">
     <sca:interface.wsdl xmi:id="_T7TVFrE7EeuvWY1N5jnJUQ" interface="http://xmlns.example.com/20210216113212PLT#wsdl.interface(elaw-healthcheck)" scaext:wsdlLocation="../Processes/com/fnf/eai/common/healthcheck.bwp"/>
     <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_T7TVF7E7EeuvWY1N5jnJUQ" name="RestService" path="/elaw/healthcheck" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="healthcheck" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.common.healthcheck-healthcheck.json">
@@ -32,6 +32,55 @@
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_aQwbQrE7EeuvWY1N5jnJUQ" bindingName="RestService1"/>
   </sca:service>
+  <sca:service xmi:id="_l5HgMbe3EeuEDd4UQo8NRQ" name="elaw-elasticsearch-approval-search-list" promote="ComponentELAW_ITER_ONL/elaw-elasticsearch-approval-search-list">
+    <sca:interface.wsdl xmi:id="_l5MYsLe3EeuEDd4UQo8NRQ" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-elasticsearch-approval-search-list)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_l5ZNALe3EeuEDd4UQo8NRQ" name="RestService4" path="/elaw/elasticsearch/approval/search-list" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="ELAW_ITER_ONL" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json">
+      <operation xmi:id="_l5n2gLe3EeuEDd4UQo8NRQ" operationName="post" nickname="post-elaw-elasticsearch-approval-search-list" httpMethod="POST" notes="postELAW_ITER_ONL" responseStyle="element" outputPartName="item">
+        <parameters xmi:id="_3EHNYLn4Eeuse_qpQLYdOw" formElement="parameters:elaw-elasticsearch-approval-search-listPostForm"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_l5xngLe3EeuEDd4UQo8NRQ"/>
+      <advancedConfig xmi:id="_l5ZNAbe3EeuEDd4UQo8NRQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_l5n2gbe3EeuEDd4UQo8NRQ" bindingName="RestService4"/>
+  </sca:service>
+  <sca:service xmi:id="_UqI-gLkyEeuse_qpQLYdOw" name="elaw-hook-common-webhook-event" promote="ComponentELAW_ITER_ONL/elaw-hook-common-webhook-event">
+    <sca:interface.wsdl xmi:id="_UqVy0LkyEeuse_qpQLYdOw" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-hook-common-webhook-event)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_UqvbcLkyEeuse_qpQLYdOw" name="RestService5" path="/elaw/hook/common-webhook-event" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="ELAW_ITER_ONL" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json">
+      <operation xmi:id="_Uq1iELkyEeuse_qpQLYdOw" operationName="post" nickname="post-elaw-hook-common-webhook-event" httpMethod="POST" notes="postELAW_ITER_ONL" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Uq7osLkyEeuse_qpQLYdOw"/>
+      <advancedConfig xmi:id="_UqvbcbkyEeuse_qpQLYdOw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Uq1iEbkyEeuse_qpQLYdOw" bindingName="RestService5"/>
+  </sca:service>
+  <sca:service xmi:id="_Fh5s0MjEEeutn74kTmuvKg" name="elaw-organization-data" promote="ComponentELAW_ITER_ONL/elaw-organization-data">
+    <sca:interface.wsdl xmi:id="_FiEr8MjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-data)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_FjPwoMjEEeutn74kTmuvKg" name="RestService6" path="/elaw/organization-data" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="ELAW_ITER_ONL" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json">
+      <operation xmi:id="_FjqAUMjEEeutn74kTmuvKg" operationName="post" nickname="post-elaw-organization-data" httpMethod="POST" notes="postELAW_ITER_ONL" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_FkrUAMjEEeutn74kTmuvKg"/>
+      <advancedConfig xmi:id="_FjPwocjEEeutn74kTmuvKg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_FjqnYMjEEeutn74kTmuvKg" bindingName="RestService6"/>
+  </sca:service>
+  <sca:service xmi:id="_IdAMAcjEEeutn74kTmuvKg" name="elaw-organization-tree-all" promote="ComponentELAW_ITER_ONL/elaw-organization-tree-all">
+    <sca:interface.wsdl xmi:id="_IdAMBcjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-tree-all)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_IeUaoMjEEeutn74kTmuvKg" name="RestService7" path="/elaw/organization-tree-all" docBasePath="http://localhost:7777/EAI_RestTypeELaw" docResourcePath="ELAW_ITER_ONL" basePath="/" connector="com.fnf.eai.resources.http.server.eai.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json">
+      <operation xmi:id="_IeuDQMjEEeutn74kTmuvKg" operationName="post" nickname="post-elaw-organization-tree-all" httpMethod="POST" notes="postELAW_ITER_ONL" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_IfsToMjEEeutn74kTmuvKg"/>
+      <advancedConfig xmi:id="_IeUaocjEEeutn74kTmuvKg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_IeuqUMjEEeutn74kTmuvKg" bindingName="RestService7"/>
+  </sca:service>
   <sca:property xmi:id="_2ntKELE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_2n27ELE4EeuvWY1N5jnJUQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_2n27EbE4EeuvWY1N5jnJUQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
@@ -55,13 +104,10 @@
   <sca:property xmi:id="_SgPhwLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/QTP_MAX" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_S4UDgLE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/hostname1" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_UmTPULE6EeuvWY1N5jnJUQ" name="/EAI_INFO/HTTP/CONFIG/hostname2" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_vJgYgLFLEeuvWY1N5jnJUQ" name="/MERP_INFO/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_xC3G0LFLEeuvWY1N5jnJUQ" name="/MERP_INFO/password" type="property:password" scaext:simpleValue="#!m7H/mlGuJaQppfJbiOaw1Q==" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_x7yS4LFLEeuvWY1N5jnJUQ" name="/MERP_INFO/url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_yxMQ4LFLEeuvWY1N5jnJUQ" name="/MERP_INFO/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_z5cSYLFLEeuvWY1N5jnJUQ" name="/MERP_INFO/maxconnection" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_NEio4LFMEeuvWY1N5jnJUQ" name="/MERP_INFO/login_timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_PCIW8LFMEeuvWY1N5jnJUQ" name="/MERP_INFO/idle_timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_MnoVMLe0EeuEDd4UQo8NRQ" name="/ITER_INFO/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NLwV8Le0EeuEDd4UQo8NRQ" name="/ITER_INFO/HTTP/authorization" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_QctJULe0EeuEDd4UQo8NRQ" name="/ITER_INFO/HTTP/password" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Qne18Le0EeuEDd4UQo8NRQ" name="/ITER_INFO/HTTP/port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="__b88ALE6EeuvWY1N5jnJUQ" name="Componenthealthcheck" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="__b88AbE6EeuvWY1N5jnJUQ" processName="com.fnf.eai.common.healthcheck"/>
     <sca:service xmi:id="_T7TVELE7EeuvWY1N5jnJUQ" name="elaw-healthcheck">
@@ -69,6 +115,21 @@
     </sca:service>
     <sca:service xmi:id="_aQmqQLE7EeuvWY1N5jnJUQ" name="elaw-stresscheck">
       <sca:interface.wsdl xmi:id="_aQmqQbE7EeuvWY1N5jnJUQ" interface="http://xmlns.example.com/20210216113212PLT#wsdl.interface(elaw-stresscheck)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_ex6JwLezEeuEDd4UQo8NRQ" name="ComponentELAW_ITER_ONL" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ex6JwbezEeuEDd4UQo8NRQ" processName="com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL"/>
+    <sca:service xmi:id="_l5G5ILe3EeuEDd4UQo8NRQ" name="elaw-elasticsearch-approval-search-list">
+      <sca:interface.wsdl xmi:id="_l5HgMLe3EeuEDd4UQo8NRQ" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-elasticsearch-approval-search-list)"/>
+    </sca:service>
+    <sca:service xmi:id="_UqFUILkyEeuse_qpQLYdOw" name="elaw-hook-common-webhook-event">
+      <sca:interface.wsdl xmi:id="_UqGiQLkyEeuse_qpQLYdOw" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-hook-common-webhook-event)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_Fh00UMjEEeutn74kTmuvKg" name="elaw-organization-data">
+      <sca:interface.wsdl xmi:id="_Fh2CcMjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-data)"/>
+    </sca:service>
+    <sca:service xmi:id="_Ic_k8MjEEeutn74kTmuvKg" name="elaw-organization-tree-all">
+      <sca:interface.wsdl xmi:id="_IdAMAMjEEeutn74kTmuvKg" interface="http://xmlns.example.com/20210518173145PLT#wsdl.interface(elaw-organization-tree-all)" scaext:wsdlLocation="../Processes/com/fnf/eai/elaw/iter/rest/ELAW_ITER_ONL.bwp"/>
     </sca:service>
   </sca:component>
 </sca:composite>

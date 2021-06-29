@@ -1,0 +1,118 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "ELAW_ITER_ONL",
+    "description" : "ELAW_ITER_ONL service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/elaw/elasticsearch/approval/search-list" : {
+      "post" : {
+        "summary" : "postELAW_ITER_ONL",
+        "description" : "postELAW_ITER_ONL",
+        "operationId" : "post-elaw-elasticsearch-approval-search-list",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/elaw/organization-tree-all" : {
+      "post" : {
+        "summary" : "postELAW_ITER_ONL",
+        "description" : "postELAW_ITER_ONL",
+        "operationId" : "post-elaw-organization-tree-all",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/elaw/organization-data" : {
+      "post" : {
+        "summary" : "postELAW_ITER_ONL",
+        "description" : "postELAW_ITER_ONL",
+        "operationId" : "post-elaw-organization-data",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/elaw/hook/common-webhook-event" : {
+      "post" : {
+        "summary" : "postELAW_ITER_ONL",
+        "description" : "postELAW_ITER_ONL",
+        "operationId" : "post-elaw-hook-common-webhook-event",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "type" : "string"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

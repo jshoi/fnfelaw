@@ -1,7 +1,17 @@
 {
-    "records": [],
-    "resources": [{
-        "location": "Service Descriptors/com.fnf.eai.common.healthcheck-healthcheck.json",
-        "type": "generated"
-    }]
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/com.fnf.eai.common.healthcheck-healthcheck.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/com.fnf.eai.elaw.iter.rest.ELAW_ITER_ONL-ELAW_ITER_ONL.json",
+            "type": "generated"
+        }
+    ]
 }
