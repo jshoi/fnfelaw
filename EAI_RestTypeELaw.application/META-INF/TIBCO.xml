@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <packaging:packageUnit xmlns:packaging="http://schemas.tibco.com/tra/model/core/PackagingModel" xmlns:property="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <packaging:description>[1.3.0] ELAW_ITER_ONL_0001,2 URI 변경</packaging:description>
+  <packaging:description>[1.0.0] ELAW 최초 반영</packaging:description>
   <packaging:properties>
     <packaging:property>
       <packaging:name>//EAI_RestTypeELaw//BW.DEPLOYMENTUNIT.TYPE</packaging:name>
