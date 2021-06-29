@@ -87,63 +87,11 @@
         }
       }
     },
-    "/elaw/employee-dept-all" : {
-      "post" : {
-        "summary" : "postELAW_ITER_ONL",
-        "description" : "postELAW_ITER_ONL",
-        "operationId" : "post-elaw-employee-dept-all",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "body",
-          "in" : "body",
-          "description" : "",
-          "schema" : {
-            "type" : "string"
-          },
-          "required" : true
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "a string to be returned",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
     "/elaw/hook/common-webhook-event" : {
       "post" : {
         "summary" : "postELAW_ITER_ONL",
         "description" : "postELAW_ITER_ONL",
         "operationId" : "post-elaw-hook-common-webhook-event",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "body",
-          "in" : "body",
-          "description" : "",
-          "schema" : {
-            "type" : "string"
-          },
-          "required" : true
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "a string to be returned",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/elaw/employee-all" : {
-      "post" : {
-        "summary" : "postELAW_ITER_ONL",
-        "description" : "postELAW_ITER_ONL",
-        "operationId" : "post-elaw-employee-all",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
